@@ -1,0 +1,68 @@
+<mvc:View    
+	xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  controllerName="sap.ui.demo.controller.App"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+   <html:style>
+        .stats {
+					border: 2px solid green;
+        },
+				.gray {
+					color: lightgray;
+				},
+   </html:style>
+  <Page title="Райское наслаждение" titleAlignment="Center">
+    <content>
+      <FlexBox backgroundDesign="Solid" direction="Column" class="stats">
+        <FlexBox direction="Column" class="sapUiMediumMargin">
+					<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+						<FlexBox alignItems="Start" justifyContent="Start">
+							<core:Icon size="50px" color="#0092d1" src="sap-icon://nutrition-activity"/>
+							<Title class="sapUiSmallMarginBegin gray" level="H1" titleStyle="H3" text="Показатели" width="100%" textAlign="Center"/>
+						</FlexBox>
+
+						<FlexBox direction="Column" alignItems="Center" justifyContent="Start">
+							<Title class="sapThemeHighlight-asColor " titleStyle="H4" text="{= ${products>/products}.length}" width="100%"/>
+							<Title class="sapThemeHighlight-asColor " titleStyle="H5" text="шт" width="100%"/>
+						</FlexBox>
+					</FlexBox>
+
+					<FlexBox class="sapUiSmallMarginTop" direction="Column" alignItems="Start">
+						<ObjectStatus text="Сумма: {stats>/stats/price}"/>
+						<ObjectStatus class="sapUiTinyMarginTop" text="Среднее {stats>/stats/medium}"/>
+					</FlexBox>
+        </FlexBox>
+      </FlexBox>
+			
+    	<Table items="{products>/products}">
+    	  <columns >
+					<Column>
+						<Text text="Шоколадки"/>
+    	    </Column>
+    	    <Column>
+    	       <Text text="Производитель"/>
+    	    </Column>
+    	    <Column>
+    	       <Text text="Цена"/>
+    	    </Column>
+    	  </columns>
+    	  <items>
+    	     <ColumnListItem type="Navigation" press=".onItem">
+    	        <cells>
+    	          <Title  titleStyle="H6" text="{products>name}"/>
+    	          <Text text="{products>company}"/>
+								<FlexBox>
+    	          	<Text text="{products>price},00"/>
+    	          	<Text class="gray" text="руб"/>
+								</FlexBox>
+
+    	        </cells>
+    	     </ColumnListItem>
+    	  </items>
+    	</Table>
+    </content>
+  </Page>
+</mvc:View>
+
