@@ -1,1 +1,0 @@
-sap.ui.define(["sap/ui/core/UIComponent"],function(t){"use strict";return t.extend("sap.ui.demo.Component",{metadata:{interfaces:["sap.ui.core.IAsyncContentCreation"],manifest:"json"},init:function(){t.prototype.init.apply(this,arguments);this.getRouter().initialize()}})});

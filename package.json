@@ -1,11 +1,14 @@
 {
   "name": "ui5",
+  "homepage": "https://github.com/dimasliva/sapui5",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "ui5 serve",
-    "build": "mbt build",
+    "build": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
